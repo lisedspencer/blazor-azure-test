@@ -1,0 +1,33 @@
+﻿@page "/IPO"
+
+<h1>Input, Processing, Output</h1>
+
+<h3>Exponential Function</h3>
+
+<p>Short in-page function to raise a given base to a given power. Takes integers or doubles.</p>
+
+<p>Enter a base:</p>
+<input @bind="InputBase"/>
+
+<p>Enter an exponent:</p>
+<input @bind="InputExponent"/>
+
+<p><button class="btn btn-primary" @onclick="GetExponential">Calculate</button></p>
+
+<p>Output: @OutputResult</p>
+
+@code {
+    private string InputBase { get; set; }
+    private string InputExponent { get; set; }
+    private string OutputResult { get; set; }
+
+    private void GetExponential()
+    {
+        double baseNum = double.Parse(InputBase);
+        double expNum = double.Parse(InputExponent);
+
+        double result = Math.Pow(baseNum, expNum);
+        OutputResult = result.ToString();
+    }
+
+}
